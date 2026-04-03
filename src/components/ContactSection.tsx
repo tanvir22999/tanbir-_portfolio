@@ -1,16 +1,30 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, Github, Linkedin, Send } from "lucide-react";
+import { Mail, Phone, Github, Linkedin, Send, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from "@emailjs/browser";
 
 const ContactSection = () => {
   const { toast } = useToast();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [sending, setSending] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({ title: "Message sent!", description: "Thank you for reaching out. I'll get back to you soon." });
-    setForm({ name: "", email: "", message: "" });
+    setSending(true);
+    try {
+      await emailjs.send("service_caaaye9", "template_mpuytv4", {
+        from_name: form.name,
+        from_email: form.email,
+        message: form.message,
+      }, "xYnEnkPO20peKjB3a");
+      toast({ title: "Message sent!", description: "Thank you for reaching out. I'll get back to you soon." });
+      setForm({ name: "", email: "", message: "" });
+    } catch {
+      toast({ title: "Failed to send", description: "Something went wrong. Please try again.", variant: "destructive" });
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -81,9 +95,10 @@ const ContactSection = () => {
             />
             <button
               type="submit"
-              className="flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:glow-blue transition-all hover:scale-105"
+              disabled={sending}
+              className="flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:glow-blue transition-all hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Send Message <Send size={16} />
+              {sending ? <><Loader2 size={16} className="animate-spin" /> Sending...</> : <>Send Message <Send size={16} /></>}
             </button>
           </motion.form>
         </div>
