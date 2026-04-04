@@ -19,8 +19,10 @@ const HeroSection = () => (
           transition={{ duration: 0.7 }}
         >
           <p className="font-mono text-primary text-sm mb-4">Hello, I'm</p>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight">
-            Md Tanbir<br />
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight tracking-tight">
+            <span className="text-foreground">Md </span>
+            <span className="text-gradient">Tanbir</span>
+            <br />
             <span className="text-gradient">Hossain</span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-lg mx-auto lg:mx-0">
