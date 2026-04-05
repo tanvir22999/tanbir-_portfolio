@@ -9,7 +9,7 @@ const skills = [
 ];
 
 const education = [
-  { degree: "BSc in Software Engineering", school: "IICT, Shahjalal University of Science & Technology", year: "2025 – 2029" },
+  { degree: "BSc in Software Engineering", school: "IICT, Shahjalal University of Science & Technology", year: "2024 – 2029" },
   { degree: "HSC", school: "Comilla Commerce College", year: "2023" },
 ];
 
