@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://tanvirsustswe24.netlify.app/sitemap.xml
