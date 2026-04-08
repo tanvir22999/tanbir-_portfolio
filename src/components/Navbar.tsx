@@ -18,7 +18,7 @@ const Navbar = () => {
       <div className="container flex items-center justify-between h-16">
         <a href="#home" className="flex items-center gap-2">
           <img src={sustLogo} alt="SUST Logo" className="w-8 h-8" />
-          <span className="text-xl font-bold text-gradient font-mono">&lt;Tanvir /&gt;</span>
+          <span className="text-xl font-bold font-mono"><span className="text-primary">&lt;</span>Tanvir <span className="text-primary">/&gt;</span></span>
         </a>
 
         <div className="hidden md:flex gap-8">
