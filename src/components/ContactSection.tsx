@@ -46,6 +46,7 @@ const ContactSection = () => {
               {[
                 { icon: Mail, label: "tanvir22999629@gmail.com", href: "mailto:tanvir22999629@gmail.com" },
                 { icon: Phone, label: "01322999629", href: "tel:01322999629" },
+                { icon: MapPin, label: "Sylhet, Bangladesh", href: "#" },
                 { icon: Github, label: "github.com/tanvir22999", href: "https://github.com/tanvir22999" },
                 { icon: Linkedin, label: "LinkedIn Profile", href: "https://www.linkedin.com/in/tanvir-hossain-50475635b/" },
               ].map((c) => (
