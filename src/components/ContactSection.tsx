@@ -16,8 +16,8 @@ const ContactSection = () => {
       await emailjs.send("service_kqqh6k6", "template_mpuytv4", {
         from_name: form.name,
         from_email: form.email,
-        from_phone: form.phone,
-        from_address: form.address,
+        phone_number: form.phone,
+        address: form.address,
         message: form.message,
       }, "t8phjLsGQ7ohUVsBZ");
       toast({ title: "Message sent!", description: "Thank you for reaching out. I'll get back to you soon." });
