@@ -13,7 +13,7 @@ const ContactSection = () => {
     e.preventDefault();
     setSending(true);
     try {
-      await emailjs.send("service_caaaye9", "template_mpuytv4", {
+      await emailjs.send("service_kqqh6k6", "template_mpuytv4", {
         from_name: form.name,
         from_email: form.email,
         from_phone: form.phone,
