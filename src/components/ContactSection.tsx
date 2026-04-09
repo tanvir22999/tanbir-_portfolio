@@ -16,10 +16,12 @@ const ContactSection = () => {
       await emailjs.send("service_caaaye9", "template_mpuytv4", {
         from_name: form.name,
         from_email: form.email,
+        from_phone: form.phone,
+        from_address: form.address,
         message: form.message,
       }, "xYnEnkPO20peKjB3a");
       toast({ title: "Message sent!", description: "Thank you for reaching out. I'll get back to you soon." });
-      setForm({ name: "", email: "", message: "" });
+      setForm({ name: "", email: "", phone: "", address: "", message: "" });
     } catch {
       toast({ title: "Failed to send", description: "Something went wrong. Please try again.", variant: "destructive" });
     } finally {
