@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, Github, Linkedin, Send, Loader2 } from "lucide-react";
+import { Mail, Phone, Github, Linkedin, Send, Loader2, MapPin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import emailjs from "@emailjs/browser";
 
 const ContactSection = () => {
   const { toast } = useToast();
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", phone: "", address: "", message: "" });
   const [sending, setSending] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -16,10 +16,12 @@ const ContactSection = () => {
       await emailjs.send("service_caaaye9", "template_mpuytv4", {
         from_name: form.name,
         from_email: form.email,
+        from_phone: form.phone,
+        from_address: form.address,
         message: form.message,
       }, "xYnEnkPO20peKjB3a");
       toast({ title: "Message sent!", description: "Thank you for reaching out. I'll get back to you soon." });
-      setForm({ name: "", email: "", message: "" });
+      setForm({ name: "", email: "", phone: "", address: "", message: "" });
     } catch {
       toast({ title: "Failed to send", description: "Something went wrong. Please try again.", variant: "destructive" });
     } finally {
@@ -44,6 +46,7 @@ const ContactSection = () => {
               {[
                 { icon: Mail, label: "tanvir22999629@gmail.com", href: "mailto:tanvir22999629@gmail.com" },
                 { icon: Phone, label: "01322999629", href: "tel:01322999629" },
+                { icon: MapPin, label: "Sylhet, Bangladesh", href: "#" },
                 { icon: Github, label: "github.com/tanvir22999", href: "https://github.com/tanvir22999" },
                 { icon: Linkedin, label: "LinkedIn Profile", href: "https://www.linkedin.com/in/tanvir-hossain-50475635b/" },
               ].map((c) => (
@@ -85,6 +88,22 @@ const ContactSection = () => {
               onChange={(e) => setForm({ ...form, email: e.target.value })}
               className="w-full px-4 py-3 rounded-lg bg-card border border-border focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary text-foreground text-sm transition-colors"
             />
+            <div className="grid grid-cols-2 gap-4">
+              <input
+                type="tel"
+                placeholder="Your Phone Number"
+                value={form.phone}
+                onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                className="w-full px-4 py-3 rounded-lg bg-card border border-border focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary text-foreground text-sm transition-colors"
+              />
+              <input
+                type="text"
+                placeholder="Your Address"
+                value={form.address}
+                onChange={(e) => setForm({ ...form, address: e.target.value })}
+                className="w-full px-4 py-3 rounded-lg bg-card border border-border focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary text-foreground text-sm transition-colors"
+              />
+            </div>
             <textarea
               placeholder="Your Message"
               required
