@@ -104,6 +104,7 @@ const ContactSection = () => {
                 className="w-full px-4 py-3 rounded-lg bg-card border border-border focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary text-foreground text-sm transition-colors"
               />
             </div>
+            <textarea
               placeholder="Your Message"
               required
               rows={5}
