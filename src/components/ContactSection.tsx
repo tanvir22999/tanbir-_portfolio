@@ -17,7 +17,7 @@ const ContactSection = () => {
         from_name: form.name,
         from_email: form.email,
         phone_number: form.phone,
-        address: form.address,
+        Address: form.address,
         message: form.message,
       }, "t8phjLsGQ7ohUVsBZ");
       toast({ title: "Message sent!", description: "Thank you for reaching out. I'll get back to you soon." });
