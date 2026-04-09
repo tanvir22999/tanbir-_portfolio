@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, Github, Linkedin, Send, Loader2 } from "lucide-react";
+import { Mail, Phone, Github, Linkedin, Send, Loader2, MapPin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import emailjs from "@emailjs/browser";
 
